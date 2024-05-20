@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./client/src/assets/Festify_Name.png" />
+  <img src="./client/src/assets/Festify_Name_2.png" />
 </p>
 
 
@@ -50,8 +50,8 @@ node index.js
 
 ## Built with
 
-* [React] () - Front end JS library for building user interfaces
-* [Express] () - Back end web framework for building RESTful APIs with Node.js
+* [React] (https://react.dev/) - Front end JS library for building user interfaces
+* [Express] (https://expressjs.com/) - Back end web framework for building RESTful APIs with Node.js
 * [MongoDB] (https://www.mongodb.com/) - Document based database
 * [SpotifyAPI] (https://developer.spotify.com/) - Retrieve metadata from Spotify content, control playback and creating playlists
 
