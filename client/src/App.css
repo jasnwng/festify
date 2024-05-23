@@ -58,7 +58,7 @@
 
 @keyframes appear {
   0% {opacity: 0%;}
-  20% {opactiy: 0%;}
+  20% {opacity: 0%;}
   100% {opacity: 100%;}
   }
 
@@ -68,7 +68,7 @@
   }
 
 /* @keyframes appear {
-  0% {opactiy: 0%;}
+  0% {opacity: 0%;}
   100% {opacity: 100%;}
   } */
 
