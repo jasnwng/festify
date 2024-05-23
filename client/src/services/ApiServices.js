@@ -114,9 +114,12 @@ apiService.addTracksToPlaylist = (playlistId, playlistURIs) => {
   }
 }
 
+const urlcheck = process.env.REACT_APP_FESTIFY_URL;
+console.log('URL CHECK', urlcheck);
+
 // get festival line-up from db 
 apiService.getFestival = async (festivalName, cb) => {
-  const url = "http://localhost:8888/festival";
+  const url = process.env.REACT_APP_FESTIFY_URL + "/festival";
   const requestOptions = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
