@@ -119,7 +119,7 @@ console.log('URL CHECK', urlcheck);
 
 // get festival line-up from db 
 apiService.getFestival = async (festivalName, cb) => {
-  const url = process.env.REACT_APP_FESTIFY_URL;
+  const url = process.env.REACT_APP_FESTIFY_URL + "/festival";
   const requestOptions = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },

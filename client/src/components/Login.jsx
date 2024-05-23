@@ -1,4 +1,5 @@
 import spotifyLogo from '../assets/Spotify_Logo_RGB_Green.png'
+const loginURL = process.env.REACT_APP_FESTIFY_URL + '/login'
 
 function Login() {
 
@@ -14,7 +15,7 @@ function Login() {
         <div className="login-text-container">
           <h2>step 1</h2>
           <h3>connect with spotify</h3>
-          <a href="http://localhost:8888/login">
+          <a href={loginURL}>
             <img id="spotifyLogo" src={spotifyLogo}></img>
           </a>
         </div>
