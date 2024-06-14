@@ -118,7 +118,7 @@ const urlcheck = process.env.REACT_APP_FESTIFY_URL;
 console.log('URL CHECK', urlcheck);
 
 // get festival line-up from db 
-apiService.getFestival = async (festivalName, cb) => {
+apiService.getFestival = async (festivalName, cb, cb2) => {
   const url = process.env.REACT_APP_FESTIFY_URL + "/festival";
   const requestOptions = {
         method: 'POST',
@@ -128,7 +128,11 @@ apiService.getFestival = async (festivalName, cb) => {
 
   const response = await fetch(url, requestOptions);
   const body = await response.json();
-  cb(body[0]);
+  if (body.length === 0) cb2('Festival cannot be found, please try again')
+  else {
+    cb2(false)
+    cb(body[0]);
+  }
 }
 
 
