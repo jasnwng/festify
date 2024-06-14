@@ -7,56 +7,57 @@ const apiService = {};
 
 // set spotify access token
 apiService.setAccessToken = (accessToken) => {
-  spotifyApi.setAccessToken(accessToken);
+  try {
+    spotifyApi.setAccessToken(accessToken);
+  } catch (error) {
+    console.error('Spotify API - failed to set access token') 
+  }
 }
 
 // search for artist by name 
 apiService.getArtist = (artistName, cb) => {
-  spotifyApi.searchArtists(artistName).then((res) => {
-    cb(res.artists.items[0])
-  })
+  try {
+    spotifyApi.searchArtists(artistName).then((res) => {
+      cb(res.artists.items[0])
+    })
+  } catch (error) {
+    console.error('Spotify API - failed to search for artist by name')
+  }
 }
 
-apiService.getArtist2 = async (artistName) => {
-  return spotifyApi.searchArtists(artistName).then((res) => {
-    return res.artists.items[0];
-  });
-}
+// apiService.getArtist2 = async (artistName) => {
+//   return spotifyApi.searchArtists(artistName).then((res) => {
+//     return res.artists.items[0];
+//   });
+// }
 
 // get artist top tracks by spotify artist id 
 apiService.getArtistTracks = (artistId, cb) => {
+  try {
     spotifyApi.getArtistTopTracks(artistId).then((res) => {
       cb(res.tracks);
     })
+  } catch (error) {
+    console.error('Spotify API - failed to get artist top tracks')    
   }
+}
 
 // get artist related artists by spotify artist id
 apiService.getRelatedArtists = (artistId, cb) => {
+  try {
     spotifyApi.getArtistRelatedArtists(artistId).then((res) => {
       cb(res.artists);
     })
+  } catch (error) {
+    console.error('Spotify API - failed to get related artist info')    
   }
+}
 
 // get user top 100 tracks 
 apiService.getTopArtists = async (cb) => {
 
-  // const numberOfArtists = 150;
-  // const limit = 50;
-  // const iterations = numberOfArtists / limit;
-  // let tempArr = [];
-
-  // for (let i = 0; i < iterations; i++) {
-  //   const offset = limit * i;
-  //   spotifyApi.getMyTopArtists({ 'limit': '50', 'offset': `${offset}` })
-  //     .then((res) => {
-  //       res.items.forEach(artist => tempArr.push(artist.name));
-  //   })
-  // }
-
-  // cb(...tempArr);
-
-
-  await spotifyApi.getMyTopArtists({ 'limit': '50' })
+  try {
+     await spotifyApi.getMyTopArtists({ 'limit': '50' })
     .then((res) => {
       let tempTopArtists = [];
       res.items.forEach(artist => tempTopArtists.push(artist.name));
@@ -74,48 +75,59 @@ apiService.getTopArtists = async (cb) => {
     })
     })
   }) 
-  
+  } catch (error) {
+    console.error('Spotify API - failed to get user top tracks')
+  }
 }
 
 // get user ID 
 apiService.getUserId = async () => {
-  return spotifyApi.getMe()
-    .then((res) =>  res.id);
+  try {
+    return spotifyApi.getMe()
+      .then((res) =>  res.id);
+  } catch (error) {
+    console.error('Spotify API - failed to get user ID')    
+  }
 }
 
 // create new playlist for user 
 apiService.createPlaylist = (userId, festivalName, festivalDescription) => {
-  return spotifyApi.createPlaylist(userId,
-    {
-      'name': `${festivalName} 2024`,
-      'description': `${festivalDescription}`,
-      'public': false,
-      'collaborative': true,
- })
-    .then((res) => {
-      return res
-    });
+  try {
+    return spotifyApi.createPlaylist(userId,
+      {
+        'name': `${festivalName} 2024`,
+        'description': `${festivalDescription}`,
+        'public': false,
+        'collaborative': true,
+    })
+      .then((res) => {
+        return res
+      });
+  } catch (error) {
+    console.error('Spotify API - failed to create new playlist')
+  }
 }
 
 // add tracks to playlist for playlist with specific id 
 apiService.addTracksToPlaylist = (playlistId, playlistURIs) => {
-  const batches = Math.ceil(playlistURIs.length / 100);
-  const remainder = playlistURIs.length % 100;
+  try {
+    const batches = Math.ceil(playlistURIs.length / 100);
+    const remainder = playlistURIs.length % 100;
 
-  for (let i = 0; i < batches; i++) {
-    let limit = 100;
-    let start = i * limit;
-    let content = i === batches - 1 ? remainder : limit;
-    let end = start + content;
-    setTimeout(() => {
-      spotifyApi.addTracksToPlaylist(playlistId, playlistURIs.slice(start, end))
-        .then((res) => console.log(res))
-    }, i * 200)
+    for (let i = 0; i < batches; i++) {
+      let limit = 100;
+      let start = i * limit;
+      let content = i === batches - 1 ? remainder : limit;
+      let end = start + content;
+      setTimeout(() => {
+        spotifyApi.addTracksToPlaylist(playlistId, playlistURIs.slice(start, end))
+          .then((res) => console.log(res))
+      }, i * 200)
+    }
+  } catch (error) {
+    console.error('Spotify API - failed to add tracks to playlist')
   }
 }
-
-const urlcheck = process.env.REACT_APP_FESTIFY_URL;
-console.log('URL CHECK', urlcheck);
 
 // get festival line-up from db 
 apiService.getFestival = async (festivalName, cb, cb2) => {
