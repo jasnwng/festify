@@ -4,10 +4,11 @@ const getOneFestival = async (req, res) => {
   try {
     const name = req.body.festivalName;
     const festival = await model.getOneFestival(name);
-    res.status(200).json(festival);
+    if (festival.length === 0) res.send(404)
+    else res.status(200).json(festival);
   } catch (error) {
     console.log('e', error);
-    res.status(500);
+    res.send(500);
   }
 };
 
@@ -17,7 +18,7 @@ const getAllFestivals = async (req, res) => {
     res.status(200).json(festivals);
   } catch (error) {
     console.log('e', error);
-    res.status(500);
+    res.send(500);
   }
 };
 
