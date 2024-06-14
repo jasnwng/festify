@@ -6,17 +6,27 @@ function Search({ getFestival, setFestival }) {
 
  // initialise use state for search value 
   const [searchValue, setSearchValue] = useState('');
+  const [inputMessage, setInputMessage] = useState(null);
+  const [stateMessage, setStateMessage] = useState(null);
 
 
   // update search value based on input 
   const searchHandler = (e) => {
     setSearchValue(e.target.value);
+    setInputMessage(null);
   }
 
   // search api based on user input and set new festival
   const searchSubmit = (e) => {
     e.preventDefault();
-    apiService.getFestival(searchValue, setFestival)
+    if (searchValue === '') {
+      setInputMessage('Please input festival name');
+      setStateMessage(null)
+    }
+    else {
+      apiService.getFestival(searchValue, setFestival, setStateMessage)
+      e.target.reset();
+    }
   }
 
   return (
@@ -34,6 +44,8 @@ function Search({ getFestival, setFestival }) {
               <input type="text" value={searchValue} onChange={searchHandler} placeholder="SEARCH"></input>
             </form>
           </div>
+          {stateMessage && <p>{stateMessage}</p>}
+          {inputMessage && <p>{inputMessage}</p>}
         </div>
       </div>
     </div>
