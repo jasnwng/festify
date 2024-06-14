@@ -124,14 +124,21 @@ apiService.getFestival = async (festivalName, cb, cb2) => {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({festivalName})
-    };
-
-  const response = await fetch(url, requestOptions);
-  const body = await response.json();
-  if (body.length === 0) cb2('Festival cannot be found, please try again')
-  else {
-    cb2(false)
-    cb(body[0]);
+  };
+  
+  try {
+    const response = await fetch(url, requestOptions);
+    if (response.ok) {
+      const body = await response.json();
+      cb2(false)
+      cb(body[0]);
+    } else {
+      if (response.status === 404) cb2('Festival cannot be found, please try again');
+      if (response.status === 500) throw new Error('500, internal server error');
+      throw new Error(response.status)
+    }
+  } catch (error) {
+    console.error('Fetch', error)
   }
 }
 
