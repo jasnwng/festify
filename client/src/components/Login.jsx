@@ -1,4 +1,5 @@
 import spotifyLogo from '../assets/Spotify_Logo_RGB_Green.png'
+import ContactForm from './ContactForm'
 const loginURL = process.env.REACT_APP_FESTIFY_URL + '/login'
 
 function Login() {
@@ -17,11 +18,15 @@ function Login() {
           <h2>is now in <span>beta</span> mode!</h2>
           <p>
             During this phase, we are working hard to fine-tune our features and ensure a seamless experience for all. <br></br>
-            If you would like to be part of the beta testing team, please sign-up here and await instructions:<br></br>
+              If you would like to be part of the beta testing program, please submit your details below and await contact.
+            </p>
+            <ContactForm />
+            
+            <p>
             For those already onboard, please click <a href={loginURL}> here</a> to continue.<br></br>
             Best regards, <br></br>
             The Festify Team
-          </p>
+            </p>
           
             {/* <img id="spotifyLogo" src={spotifyLogo}></img> */}
        

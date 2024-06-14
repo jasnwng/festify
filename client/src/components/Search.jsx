@@ -26,10 +26,10 @@ function Search({ getFestival, setFestival }) {
          <h1 className="festify-title">festify</h1>
         </div>
         <div className="login-text-container">
-          <h2>step 2</h2>
+          {/* <h2>step 2</h2> */}
           <h3>enter a festival name</h3>
           <div id="search-container">
-            <img src={searchIcon}></img>
+            <img src={searchIcon} className='filter-grey'></img>
             <form onSubmit={searchSubmit}>
               <input type="text" value={searchValue} onChange={searchHandler} placeholder="SEARCH"></input>
             </form>

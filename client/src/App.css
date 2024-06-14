@@ -68,22 +68,50 @@
   color: var(--clr-primary-200);
   text-transform: none;
   line-height: 2em;
-  font-size: 22px;
+  font-size: 20px;
   /* max-width: 90%; */
 }
 
 .beta-container span {
   /* text-decoration: wavy underline; */
-  font-size: 60px;
+  /* font-size: 60px; */
   color: var(--clr-primary-300);
 }
 
 .beta-container a {
-  color: inherit;
-  font-weight: bold;
+  /* font-weight: bold; */
   color: var(--clr-primary-300);
 
 }
+
+#beta-form-container {
+  /* border: 1px red solid; */
+  height: 4rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 10px;
+  text-transform: none;
+}
+
+
+#beta-form-container input {
+  background-color: var(--clr-primary-300);
+  border: none;
+  height: 2em;
+  /* width: 600px; */
+  border-radius: 5px;
+  /* font-size: 20px; */
+  padding: 10px 10px;
+  color: var(--clr-background-500);
+  margin: 0 1em;
+}
+
+#beta-send {
+  visibility: hidden;
+}
+
+
 
 .festify-title {
   animation: appear 2s;
@@ -149,11 +177,8 @@
   position: absolute;
   z-index: 2;
   margin: 10px;
+  }
   
-  /* margin: -30px; */
-
-}
-
 #search-container input {
   background-color: var(--clr-primary-300);
   border: none;
@@ -163,15 +188,18 @@
   font-size: 20px;
   padding: 20px 40px;
   color: white;
+  /* color: var(--clr-background-500); */
 }
 
 textarea:focus, input:focus{
     outline: none;
+    /* caret-color: var(--clr-background-500); */
     caret-color: white;
 }
 
 ::placeholder {
-  color: var(--clr-primary-100);
+  /* color: var(--clr-background-500); */
+  color: white;
 }
 
 
