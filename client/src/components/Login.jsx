@@ -13,11 +13,19 @@ function Login() {
         </div>
         
         <div className="login-text-container">
-          <h2>step 1</h2>
-          <h3>connect with spotify</h3>
-          <a href={loginURL}>
-            <img id="spotifyLogo" src={spotifyLogo}></img>
-          </a>
+          <div className='beta-container'>
+          <h2>is now in <span>beta</span> mode!</h2>
+          <p>
+            During this phase, we are working hard to fine-tune our features and ensure a seamless experience for all. <br></br>
+            If you would like to be part of the beta testing team, please sign-up here and await instructions:<br></br>
+            For those already onboard, please click <a href={loginURL}> here</a> to continue.<br></br>
+            Best regards, <br></br>
+            The Festify Team
+          </p>
+          
+            {/* <img id="spotifyLogo" src={spotifyLogo}></img> */}
+       
+            </div>
         </div>
 
       </div>
