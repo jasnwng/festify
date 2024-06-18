@@ -16,17 +16,20 @@ function Login() {
         <div className="login-text-container">
           <div className='beta-container'>
           <h2>is now in <span>beta</span> mode!</h2>
-          <p>
-            During this phase, we are working hard to fine-tune our features and ensure a seamless experience for all. <br></br>
-              If you would like to be part of the beta testing program, please submit your details below and await contact.
-            </p>
-            <ContactForm />
+          {/* <p>
+              During this phase, we are working hard to fine-tune our features and ensure a seamless experience for all.
+          </p> */}
+          <p> 
+            If you would like to be part of the beta testing program, please submit your details below and await contact.
+          </p>
             
             <p>
-            For those already onboard, please click <a href={loginURL}> here</a> to continue.<br></br>
-            Best regards, <br></br>
-            The Festify Team
+              For those already onboard, please click <a href={loginURL}> here</a> to continue.
             </p>
+            <p>
+              Regards, The Festify Team
+            </p>
+            <ContactForm />
           
             {/* <img id="spotifyLogo" src={spotifyLogo}></img> */}
        
