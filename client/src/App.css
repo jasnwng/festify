@@ -2,6 +2,10 @@
 
 .App {
   text-transform: uppercase;
+  margin: 0 auto;
+  /* display: flex;
+  flex-direction: column; */
+  /* align-items: center; */
 }
 
 .Login {
@@ -249,34 +253,53 @@ textarea:focus, input:focus{
 .header h3 {
   font-size: 32px;
   font-weight: 400;
-  color: var(--clr-text-white)
+  color: var(--clr-text-white) 
 }
 
 .main-page {
   /* border: 1px green solid; */
+  max-width: 1920px;
+  margin: 0 auto;
   animation: appear 5s;
   animation-iteration-count: 1;
 }
 
 .dashboard {
-  /* border: 1px blue solid; */
-  background-color: var(--clr-background-500);
+  border: 1px blue solid;
+  /* background-color: var(--clr-background-500); */
+  /* background-color: white; */
   color: var(--clr-text-white);
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  align-items: flex-start;
+  /* justify-content: center; */
+  align-items: center;
   padding: 0px 40px;
   text-transform: uppercase;
+  flex-wrap: wrap;
+
 }
 
 .dashboard-left {
-  /* border: 1px green solid; */
+  border: 1px green solid;
+  /* background-color: white; */
   display: flex;
   flex-direction: column;
   gap: 0px;
   padding: 40px 0px;
-  width: 27%;
+  width: 33%;
+  height: 100%;
+  max-height: 700px;
+}
+
+.dashboard-center {
+  display: flex;
+  flex-direction: column;
+  width: 33%;
+  max-height: 700px;
+  overflow: none;
+  /* background-color: yellow; */
+  /* min-height: 100%; */
+  /* flex: 1; */
 }
 
 .buttons {
@@ -318,7 +341,7 @@ button:hover {
   /* border: 1px red solid; */
   overflow: scroll;
   padding: 0px 20px;
-  height: 500px;
+  max-height: 500px;
 }
 
 
@@ -429,17 +452,28 @@ button:hover {
 
 .artist {
   /* border: 1px  blue solid; */
+  /* background-color: blue; */
+  /* width: 40%; */
   padding: 20px;
-  width: 40%;
   animation: appear 3s;
-  
+  /* background-color: white; */
 }
 
-.artist img {
-  height: 600px;
+.artist img { 
+  /* height: 600px; */
+  width: 500px;
+  max-width: 150%;
+  min-width: 400px;
+  height: auto;
+
+  /* width: 100%; */
+  /* width: auto; */
+  /* max-height: 3000px;
+  max-width: 3000px; */
   opacity: 70%;
   filter: saturate(70%);
   margin: 10px 40px 10px 40px;
+  z-index: -1;
   animation: grow 5s linear;
   animation-iteration-count: infinite;
   /* border-radius: 15px; */
@@ -470,16 +504,17 @@ button:hover {
 }
 
 .dashboard-right {
-  /* border: 1px red solid; */
-  margin-top: 60px;
-  padding: 20px 60px;
+  border: 1px red solid;
+  /* background-color: red; */
+  padding: 20px 80px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  gap: px;
-  width: 27%;
+  justify-content: center;
+  gap: 50px;
+  width: 33%;
   color: var(--clr-text-muted);
   font-size: 22px;
+  /* margin: auto 0; */
 }
 
 .dashboard-right h3 {
@@ -493,7 +528,9 @@ button:hover {
   /* border-right: 1px var(--clr-primary-300) solid; */
   /* overflow: auto; */
   /* white-space: nowrap; */
-  height: 300px;
+  /* height: 300px; */
+  max-height: 200px;
+  overflow: scroll;
 }
 
 .tracks p:hover {
@@ -642,4 +679,78 @@ filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg) brightness(102%
 #modal-close {
   align-self: flex-end;
   margin-bottom: -30px;
+}
+
+@media screen and (max-width: 1008px) {
+
+  .dashboard {
+    justify-content: center;
+  }
+
+  .dashboard-left {
+    width: 47.5%;
+    padding: 20px 0;
+  }
+  .dashboard-center {
+    width: 47.5%;
+    padding: 20px 0;
+  }
+
+  .dashboard-right {
+    flex-direction: row;
+    justify-content: space-between;
+    width: 95%;
+    margin: 20px auto;
+    padding: 0;
+  }
+
+  .artist {
+    padding: 0;
+  }
+
+
+  .artist-container {
+    align-items: flex-end;
+  }
+
+  .artist img { 
+    max-width: 140%;
+    height: auto;
+    margin: 0;
+  }
+
+}
+
+@media screen and (max-width: 640px) {
+
+  .dashboard-left {
+    width: 90%;
+  }
+
+  .dashboard-center {
+    width: 10%;
+  }
+
+  .dashboard-right {
+    flex-direction: column;
+    gap: 30px;
+    width: 100%;
+    margin: 20px auto;
+    padding: 0;
+  }
+
+ .artist img { 
+    opacity: 30%;
+  }
+
+  .lineup p {
+    /* color: var(--clr-text-primary); */
+    color: var(--clr-primary-100)
+    /* color: var(--clr-text-white); */
+  }
+
+  .artist-container h2, .artist-container p {
+    display: none;
+  }
+
 }
