@@ -70,7 +70,7 @@ function Filter({ props }) {
           <p className={`filter-option ${filterByHeadliners ? `selected-filter` : ``}`} onClick={toggleFilterByHeadliners}>By Headliners</p>
           <p className={`filter-option ${filterByTop ? `selected-filter` : ``}`} onClick={toggleFilterByTop}>By My Top 150</p>
         </>
-      }
+        }
     </div>
   )
 }

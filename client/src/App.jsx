@@ -98,6 +98,9 @@ function App() {
             {displayModal && <SharePlaylist playlistLink={playlistLink} setDisplayModal={setDisplayModal} />}
             <Header setFestival={setFestival} festival={festival} />
             <div className='dashboard'> 
+              {/* <div className="buttons">
+                  <button className="playlist-button"  onClick={downloadPlaylist}>DOWNLOAD</button>
+                </div> */}
               
               <div className='dashboard-left'>
                 <div className="buttons">
