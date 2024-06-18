@@ -106,13 +106,14 @@ function App() {
                 <LineUp props={{...lineUpProps}} />
               </div>
 
-              <Artist artist={artist} />
-
+              <div className='dashboard-center'>
+                <Artist artist={artist} />
+              </div>
+                
               <div className='dashboard-right'>
                 <Tracks tracks={tracks} />
                 <RelatedArtists relatedArtists={relatedArtists} />
               </div>
-              
 
             </div>
           </div>

@@ -57,7 +57,7 @@ function Filter({ props }) {
   return (
     <div className="filter-search">
       <p id="shuffle-filter-button" onClick={shuffleArtist}>shuffle</p>
-      <p id='shuffle-filter-button' onClick={toggleFilter}>filter</p>
+      <p id='shuffle-filter-button' className="filter-button" onClick={toggleFilter}>filter</p>
 
       {filterOptions && <>
         <p className={`filter-option ${filterByGenre ? `selected-filter` : ``}`} onClick={toggleGenreOptions}>By Genre</p>
@@ -70,7 +70,7 @@ function Filter({ props }) {
           <p className={`filter-option ${filterByHeadliners ? `selected-filter` : ``}`} onClick={toggleFilterByHeadliners}>By Headliners</p>
           <p className={`filter-option ${filterByTop ? `selected-filter` : ``}`} onClick={toggleFilterByTop}>By My Top 150</p>
         </>
-      }
+        }
     </div>
   )
 }
