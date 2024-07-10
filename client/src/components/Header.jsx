@@ -15,11 +15,15 @@ function Header({ festival, setFestival }) {
 
   return (
     <div className="header">
-      <div onClick={resetFestival} id="header-festify" className="festify-title-container">
-        <h1 id="header-festify-text" className="festify-title">F</h1>
+      <div className="header-row-1">
+        <div onClick={resetFestival} id="header-festify" className="festify-title-container">
+          <h1 id="header-festify-text" className="festify-title">F</h1>
+        </div>
+        <div className="header-festival">
+          <h1>{festival.name}</h1>
+        </div>
       </div>
-      <div className="header-festival">
-        <h1>{festival.name}</h1>
+      <div className="header-row-2">
         <h3>{formatDate(festival.startDate)} {festival.startDate === festival.endDate ? '' : `- ${formatDate(festival.endDate)}`} </h3>
       </div>
     </div>
