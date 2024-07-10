@@ -272,6 +272,10 @@ textarea:focus, input:focus{
   color: var(--clr-text-white) 
 }
 
+.header #header-festify-text {
+  font-size: max(min(7vw, 96px), 48px);
+}
+
 .main-page {
   /* border: 1px green solid; */
   max-width: 1920px;
