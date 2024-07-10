@@ -787,7 +787,7 @@ filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg) brightness(102%
 
   .dashboard-left {
     width: 99%;
-    padding: 0 0 10px 0;
+    padding: 0 0 15px 0;
   }
 
   .dashboard-center {
@@ -796,12 +796,12 @@ filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg) brightness(102%
 
   .dashboard-right {
     flex-direction: column;
-    gap: 10px;
+    gap: 15px;
     width: 100%;
     margin: 0 auto;
     padding: 0;
     border-top: 1px var(--clr-primary-300) solid;
-    padding-top: 10px;
+    padding-top: 15px;
   }
 
   .related-artist-selected {
