@@ -327,6 +327,7 @@ textarea:focus, input:focus{
   width: 33%;
   height: 100%;
   max-height: 700px;
+  align-self: flex-start;
 }
 
 .dashboard-center {
